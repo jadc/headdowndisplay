@@ -6,6 +6,7 @@ import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,40 +14,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import red.jad.headdowndisplay.backend.HudAnimationHandler;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
 
 	@Shadow @Final private MinecraftClient client;
 
-	@Shadow private int ticks;
-
 	@Inject(at = @At("TAIL"), method = "render")
 	private void injectIntoRender(MatrixStack matrices, float tickDelta, CallbackInfo ci){
-		if(this.client.player != null) this.hddBehaviour(tickDelta);
+		if(this.client.player != null) HudAnimationHandler.tick(client);
 	}
 
-	private int hdd_y = 0;
-	private int lastTicks;
 
-	private float hdd_alpha = 1f;
 
-	private int hdd_previousSlot;
-
-	private void hddBehaviour(float delta){
-		float time = ticks + delta;
-		//if (hdd_alpha > 0) hdd_alpha -= 0.1f;
-		if(ticks - lastTicks > 60 && hdd_y > -50){
-			System.out.println(delta);
-			hdd_y -= 1;
-		}
-
-		if(this.client.player.inventory.selectedSlot != hdd_previousSlot) {
-			hdd_y = 0;
-			lastTicks = ticks;
-		}
-		hdd_previousSlot = this.client.player.inventory.selectedSlot;
-	}
 
 	/*
 	old
@@ -92,7 +73,7 @@ public class InGameHudMixin {
 			index = 2
 	)
 	private int injectHotbarY(int input){
-		return input - hdd_y;
+		return input - HudAnimationHandler.getY();
 	}
 
 	// Hotbar items
@@ -102,7 +83,7 @@ public class InGameHudMixin {
 			index = 1
 	)
 	private int injectHotbarItemY(int input){
-		return input - hdd_y;
+		return input - HudAnimationHandler.getY();
 	}
 
 	// Experience Bar
@@ -112,7 +93,7 @@ public class InGameHudMixin {
 			index = 2
 	)
 	private int injectExperienceBarY(int input){
-		return input - hdd_y;
+		return input - HudAnimationHandler.getY();
 	}
 
 	// Experience Level
@@ -122,7 +103,7 @@ public class InGameHudMixin {
 			index = 3
 	)
 	private float injectExperienceLevelY(float input){
-		return input - hdd_y;
+		return input - HudAnimationHandler.getY();
 	}
 
 	// Status Bars
@@ -132,12 +113,13 @@ public class InGameHudMixin {
 			index = 2
 	)
 	private int injectStatusBars(int input){
-		return input - hdd_y;
+		return input - HudAnimationHandler.getY();
 	}
 
 	/*
 		Fading
 	 */
+	/*
 
 	@ModifyArg(
 			method = "renderHotbar",
