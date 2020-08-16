@@ -3,7 +3,12 @@
   "minVersion": "0.8",
   "package": "red.jad.headdowndisplay.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
-  "client": [ "InGameHudMixin" ],
-  "injectors": { "defaultRequire": 1 }
+  "mixins": [
+  ],
+  "client": [
+    "InGameHudMixin",
+    "ClientPlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1 }
 }

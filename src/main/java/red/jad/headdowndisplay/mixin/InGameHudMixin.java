@@ -23,7 +23,7 @@ public class InGameHudMixin {
 
 	@Inject(at = @At("TAIL"), method = "render")
 	private void injectIntoRender(MatrixStack matrices, float tickDelta, CallbackInfo ci){
-		if(this.client.player != null) HudAnimationHandler.tick(client);
+		if(this.client.player != null) HudAnimationHandler.tick();
 	}
 
 
@@ -67,6 +67,9 @@ public class InGameHudMixin {
 	 */
 
 	// Hotbar
+
+
+
 	@ModifyArg(
 			method = "renderHotbar",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;drawTexture(Lnet/minecraft/client/util/math/MatrixStack;IIIIII)V"),
