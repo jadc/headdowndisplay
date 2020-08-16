@@ -4,6 +4,6 @@
   "package": "red.jad.headdowndisplay.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [],
-  "client": ["ExampleMixin"],
+  "client": [ "InGameHudMixin" ],
   "injectors": { "defaultRequire": 1 }
 }
