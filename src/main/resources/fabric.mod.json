@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "headdowndisplay",
+  "version": "${version}",
+
+  "name": "Head-down Display",
+  "description": "Auto-hides the HUD when not in use",
+  "authors": ["Jad Chehimi"],
+  "contact": {
+    "homepage": "https://curseforge.com/mc-mods/headdowndisplay",
+    "sources": "https://github.com/jadc/headdowndisplay",
+    "issues": "https://github.com/jadc/headdowndisplay/issues"
+  },
+
+  "license": "MIT",
+  "icon": "assets/headdowndisplay/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "red.jad.headdowndisplay.HDD"
+    ]
+  },
+  "mixins": [
+    "headdowndisplay.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
