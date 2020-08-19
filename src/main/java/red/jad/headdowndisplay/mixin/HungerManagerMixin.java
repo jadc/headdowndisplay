@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import red.jad.headdowndisplay.HDD;
 import red.jad.headdowndisplay.backend.HudAnimationHandler;
 
+// TODO: replace w/ packet
 @Mixin(HungerManager.class)
 public class HungerManagerMixin {
     @Shadow private int foodLevel;

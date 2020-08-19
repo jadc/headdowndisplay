@@ -20,7 +20,7 @@ public class DefaultConfig {
     public boolean revealExpDecrease(){ return false; }
     public boolean revealExpLvlIncrease(){ return false; }
     public boolean revealExpLvlDecrease(){ return false; }
-    public boolean revealRidableHealthIncrease(){ return false; }
-    public boolean revealRidableHealthDecrease(){ return true; }
+    public boolean revealMountHealthIncrease(){ return false; }
+    public boolean revealMountHealthDecrease(){ return true; }
     public boolean revealJumpbarChange(){ return true; }
 }

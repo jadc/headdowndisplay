@@ -37,9 +37,7 @@ public class HudAnimationHandler {
     }
 
     private static ItemStack previousStack;
-    private static int previousSlot;
     private static int previousArmor;
-    private static float previousJumpbar;
 
     public static void tick(MinecraftClient client){
         /*
@@ -51,15 +49,10 @@ public class HudAnimationHandler {
             if(client.player.method_3151() != previousJumpbar) revealHud();
             previousJumpbar = client.player.method_3151();
         }
-         */
+        */
         if(HDD.config.revealItemChange()){
             if(client.player.getMainHandStack() != previousStack) revealHud();
             previousStack = client.player.getMainHandStack();
-        }
-        if(HDD.config.revealArmorIncrease() || HDD.config.revealArmorDecrease()){
-            if(client.player.getArmor() > previousArmor && HDD.config.revealArmorIncrease()) revealHud();
-            if(client.player.getArmor() < previousArmor && HDD.config.revealArmorDecrease()) revealHud();
-            previousArmor = client.player.getArmor();
         }
     }
 
