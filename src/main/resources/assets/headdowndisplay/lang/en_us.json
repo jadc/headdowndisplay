@@ -14,11 +14,13 @@
   "text.autoconfig.headdowndisplay.option.reveal.health_decrease": "Health Decrease",
   "text.autoconfig.headdowndisplay.option.reveal.hunger_increase": "Hunger Increase",
   "text.autoconfig.headdowndisplay.option.reveal.hunger_decrease": "Hunger Decrease",
-  "text.autoconfig.headdowndisplay.option.reveal.armor_increase": "Armor Increase",
-  "text.autoconfig.headdowndisplay.option.reveal.armor_decrease": "Armor Decrease",
+  "text.autoconfig.headdowndisplay.option.reveal.armor_increase": "Armor Equip",
+  "text.autoconfig.headdowndisplay.option.reveal.armor_decrease": "Armor Breaks",
   "text.autoconfig.headdowndisplay.option.reveal.exp_increase": "Experience Increase",
   "text.autoconfig.headdowndisplay.option.reveal.exp_decrease": "Experience Decrease",
   "text.autoconfig.headdowndisplay.option.reveal.exp_lvl_increase": "Experience Level Increase",
   "text.autoconfig.headdowndisplay.option.reveal.exp_lvl_decrease": "Experience Level Decrease",
+  "text.autoconfig.headdowndisplay.option.reveal.mount_health_increase": "Mount Health Increase",
+  "text.autoconfig.headdowndisplay.option.reveal.mount_health_decrease": "Mount Health Decrease",
   "text.autoconfig.headdowndisplay.option.reveal.jumpbar": "Using Jumpbar"
 }

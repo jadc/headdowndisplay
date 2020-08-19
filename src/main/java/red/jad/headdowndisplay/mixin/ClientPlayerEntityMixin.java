@@ -3,7 +3,10 @@ package red.jad.headdowndisplay.mixin;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.JumpingMount;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.vehicle.BoatEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,18 +18,6 @@ import red.jad.headdowndisplay.backend.HudAnimationHandler;
 
 @Mixin(ClientPlayerEntity.class)
 public class ClientPlayerEntityMixin {
-    /*
-    @Inject(
-            method = "updateHealth",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getHealth()F")
-    )
-    private void revealHudOnHealthChange(float health, CallbackInfo ci){
-        HudAnimationHandler.revealHud();
-    }
-     */
-
-    @Shadow public Input input;
-
     // Health
     @Inject( method = "heal", at = @At(value = "HEAD") )
     private void healthIncreased(float amount, CallbackInfo ci){
@@ -48,8 +39,21 @@ public class ClientPlayerEntityMixin {
     }
 
     // Jumpbar
+    @Shadow public Input input;
     @Inject( method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getVehicle()Lnet/minecraft/entity/Entity;") )
     private void jumpbarChanged(CallbackInfo ci){
         if(this.input.jumping && HDD.config.revealJumpbarChange()) HudAnimationHandler.revealHud();
+    }
+
+    // Mount health
+    private float previousMountHealth;
+    @Inject( method = "tickRiding", at = @At(value = "RETURN") )
+    private void onMountHealthChange(CallbackInfo ci){
+        if (((ClientPlayerEntity)(Object)this).getVehicle() instanceof LivingEntity) {
+            LivingEntity en = (LivingEntity)((ClientPlayerEntity)(Object)this).getVehicle();
+            if(en.getHealth() > previousMountHealth && HDD.config.revealMountHealthIncrease()) HudAnimationHandler.revealHud();
+            if(en.getHealth() < previousMountHealth && HDD.config.revealMountHealthDecrease()) HudAnimationHandler.revealHud();
+            previousMountHealth = en.getHealth();
+        }
     }
 }
