@@ -1,11 +1,7 @@
 package red.jad.headdowndisplay.backend;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import org.spongepowered.asm.mixin.Shadow;
 import red.jad.headdowndisplay.HDD;
 
 public class HudAnimationHandler {
@@ -21,12 +17,14 @@ public class HudAnimationHandler {
     public static void revealHud(){
         y = HDD.config.getMaxY();
         speed = 0;
+        assert MinecraftClient.getInstance().world != null;
         lastRevealed = MinecraftClient.getInstance().world.getTime();
     }
 
     private static float now = 0;
     public static void render(float delta){
         float before = now;
+        assert MinecraftClient.getInstance().world != null;
         now = MinecraftClient.getInstance().world.getTime() + delta;
         float tdelta = now - before;
 
@@ -36,29 +34,6 @@ public class HudAnimationHandler {
         }
     }
 
-    private static ItemStack previousStack;
-    private static int previousArmor;
-
-    public static void tick(MinecraftClient client){
-        /*
-        if(HDD.config.revealSlotChange()){
-            if(client.player.inventory.selectedSlot != previousSlot) revealHud();
-            previousSlot = client.player.inventory.selectedSlot;
-        }
-        if(HDD.config.revealJumpbarChange() && client.player.hasJumpingMount()){
-            if(client.player.method_3151() != previousJumpbar) revealHud();
-            previousJumpbar = client.player.method_3151();
-        }
-        */
-        if(HDD.config.revealItemChange()){
-            if(client.player.getMainHandStack() != previousStack) revealHud();
-            previousStack = client.player.getMainHandStack();
-        }
-    }
-
-    /*
-        Injections
-     */
     public static void preInject(final MatrixStack matrices){
         matrices.push();
         matrices.translate(0, HudAnimationHandler.getY(), 0);
