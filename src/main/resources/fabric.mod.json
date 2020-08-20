@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Head-down Display",
-  "description": "Auto-hides the HUD when not in use",
+  "description": "Auto-hides the HUD when not in use.",
   "authors": ["Jad Chehimi"],
   "contact": {
     "homepage": "https://curseforge.com/mc-mods/headdowndisplay",
@@ -25,6 +25,7 @@
   ],
 
   "depends": {
+    "fabricloader": ">=0.7.4",
     "fabric": "*"
   }
 }

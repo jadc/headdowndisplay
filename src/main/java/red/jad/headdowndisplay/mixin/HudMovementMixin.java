@@ -9,32 +9,21 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import red.jad.headdowndisplay.backend.HudAnimationHandler;
+import red.jad.headdowndisplay.backend.HudConditionHandler;
 
 @Mixin(InGameHud.class)
 public class HudMovementMixin {
 
-	/*
 	@Shadow @Final private MinecraftClient client;
 
-	@Inject(at = @At("HEAD"), method = "render")
-	private void injectIntoRender(MatrixStack matrices, float tickDelta, CallbackInfo ci){
-		HudAnimationHandler.render(tickDelta);
-	}
-
-	@Inject(at = @At("HEAD"), method = "tick")
+	@Inject(method = "tick", at = @At("RETURN"))
 	private void injectIntoTick(CallbackInfo ci){
-		if(this.client.player != null) HudAnimationHandler.tick(client);
+		if(client.player != null) HudConditionHandler.tick(client.player);
 	}
-
-	 */
-
 
 	/*
 	@ModifyVariable(
@@ -72,12 +61,14 @@ public class HudMovementMixin {
 	}
 
 	// Hotbar items
+	@SuppressWarnings("deprecation")
 	@Inject( method = "renderHotbarItem", at = @At(value = "HEAD") )
 	private void translateHotbarItems(final int i, final int j, final float f, final PlayerEntity playerEntity, final ItemStack itemStack, final CallbackInfo ci){
 		RenderSystem.pushMatrix();
 		RenderSystem.translated(0, HudAnimationHandler.getY(), 0);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Inject( method = "renderHotbarItem", at = @At(value = "RETURN") )
 	private void cancelHotbarItems(final int i, final int j, final float f, final PlayerEntity playerEntity, final ItemStack itemStack, final CallbackInfo ci){
 		RenderSystem.popMatrix();

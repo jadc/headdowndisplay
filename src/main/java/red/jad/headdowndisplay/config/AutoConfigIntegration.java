@@ -28,7 +28,7 @@ public class AutoConfigIntegration extends DefaultConfig implements ConfigData {
 
     private static class Reveal {
         public boolean slot_change = true;
-        public boolean item_change = true;
+        public boolean item_change = false;
         public boolean health_increase = false;
         public boolean health_decrease = true;
         public boolean hunger_increase = false;
@@ -39,6 +39,8 @@ public class AutoConfigIntegration extends DefaultConfig implements ConfigData {
         public boolean exp_decrease = false;
         public boolean exp_lvl_increase = false;
         public boolean exp_lvl_decrease = false;
+        public boolean air_increase = false;
+        public boolean air_decrease = true;
         public boolean mount_health_increase = false;
         public boolean mount_health_decrease = true;
         public boolean jumpbar = true;
@@ -56,6 +58,8 @@ public class AutoConfigIntegration extends DefaultConfig implements ConfigData {
     @Override public boolean revealExpDecrease(){ return reveal.exp_decrease; }
     @Override public boolean revealExpLvlIncrease(){ return reveal.exp_lvl_increase; }
     @Override public boolean revealExpLvlDecrease(){ return reveal.exp_lvl_decrease; }
+    @Override public boolean revealAirIncrease(){ return reveal.air_increase; }
+    @Override public boolean revealAirDecrease(){ return reveal.air_decrease; }
     @Override public boolean revealMountHealthIncrease(){ return reveal.mount_health_increase; }
     @Override public boolean revealMountHealthDecrease(){ return reveal.mount_health_decrease; }
     @Override public boolean revealJumpbarChange(){ return reveal.jumpbar; }
