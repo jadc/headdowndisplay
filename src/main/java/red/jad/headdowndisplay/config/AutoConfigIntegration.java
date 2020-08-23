@@ -41,6 +41,7 @@ public class AutoConfigIntegration extends DefaultConfig implements ConfigData {
         public boolean exp_lvl_decrease = false;
         public boolean air_increase = false;
         public boolean air_decrease = true;
+        public boolean status_effects = false;
         public boolean mount_health_increase = false;
         public boolean mount_health_decrease = true;
         public boolean jumpbar = true;
@@ -60,6 +61,7 @@ public class AutoConfigIntegration extends DefaultConfig implements ConfigData {
     @Override public boolean revealExpLvlDecrease(){ return reveal.exp_lvl_decrease; }
     @Override public boolean revealAirIncrease(){ return reveal.air_increase; }
     @Override public boolean revealAirDecrease(){ return reveal.air_decrease; }
+    @Override public boolean revealStatusEffects(){ return reveal.status_effects; }
     @Override public boolean revealMountHealthIncrease(){ return reveal.mount_health_increase; }
     @Override public boolean revealMountHealthDecrease(){ return reveal.mount_health_decrease; }
     @Override public boolean revealJumpbarChange(){ return reveal.jumpbar; }

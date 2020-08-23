@@ -1,6 +1,9 @@
 package red.jad.headdowndisplay.config;
 
 public class DefaultConfig {
+
+    public enum change {INCREASE, DECREASE, BOTH}
+
     public boolean isEnabled(){ return true; }
     public double getMinY(){ return -60; }
     public double getMaxY(){ return 0; }
@@ -22,6 +25,7 @@ public class DefaultConfig {
     public boolean revealExpLvlDecrease(){ return false; }
     public boolean revealAirIncrease(){ return false; }
     public boolean revealAirDecrease(){ return true; }
+    public boolean revealStatusEffects(){ return false; }
     public boolean revealMountHealthIncrease(){ return false; }
     public boolean revealMountHealthDecrease(){ return true; }
     public boolean revealJumpbarChange(){ return true; }
