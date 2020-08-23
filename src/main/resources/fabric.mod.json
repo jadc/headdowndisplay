@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Head-down Display",
-  "description": "Automatically hides the Head-up Display when not in use.\nCache automatiquement l'affichage tête haute quand inutilisé.\n\nThank you strojae for the French translation.\nMerci strojae pour la traduction française.",
+  "description": "Automatically hides the Head-up Display when not in use.\nCache automatiquement l'affichage tête haute quand inutilisé.",
   "authors": ["Jad Chehimi", "strojae"],
   "contact": {
     "homepage": "https://curseforge.com/mc-mods/headdowndisplay",
