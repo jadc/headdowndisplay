@@ -22,9 +22,7 @@ public class HudConditionMixin {
 
     @Mixin(ClientPlayerEntity.class)
     private static class ClientPlayerEntityMixin {
-        @Shadow
-        @Final
-        protected MinecraftClient client;
+        @Shadow @Final protected MinecraftClient client;
 
         // Health
         @Inject( method = "heal", at = @At(value = "HEAD") )
@@ -56,8 +54,7 @@ public class HudConditionMixin {
 
         // Mount health
         // TODO: Inject method that sets these values, rather than checking every tick
-        @Unique
-        private float previousMountHealth;
+        @Unique private float previousMountHealth;
         @Inject( method = "tickRiding", at = @At(value = "RETURN") )
         private void mountHealthChange(CallbackInfo ci){
             if (((ClientPlayerEntity)(Object)this).getVehicle() instanceof LivingEntity) {

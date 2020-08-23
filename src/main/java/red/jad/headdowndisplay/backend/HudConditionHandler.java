@@ -9,10 +9,10 @@ import static red.jad.headdowndisplay.backend.HudAnimationHandler.revealHud;
 public class HudConditionHandler {
 
     private static ItemStack previousStack;
-    private static ItemStack[] previousHotbar;
     private static int previousArmor;
     private static int previousHunger;
     private static int previousAir;
+    private static int previousStatusEffects;
 
     // TODO: Inject into methods that set these values, rather than checking every tick
     public static void tick(ClientPlayerEntity player){
@@ -21,7 +21,12 @@ public class HudConditionHandler {
             previousStack = player.getMainHandStack();
         }
 
-        if(HDD.config.revealArmorIncrease() || HDD.config.revealHungerDecrease()){
+        if(HDD.config.revealStatusEffects()){
+            if(player.getActiveStatusEffects().size() != previousStatusEffects) revealHud();
+            previousStatusEffects = player.getActiveStatusEffects().size();
+        }
+
+        if(HDD.config.revealArmorIncrease() || HDD.config.revealArmorDecrease()){
             revealDelta(player.getArmor(), previousArmor, HDD.config.revealArmorIncrease(), HDD.config.revealArmorDecrease());
             previousArmor = player.getArmor();
         }
