@@ -1,0 +1,24 @@
+{
+  "text.autoconfig.headdowndisplay.title":                        "Affichage tête basse",
+  "key.categories.headdowndisplay":                               "Affichage tête basse",
+  "key.headdowndisplay.showhud":                                  "Révéler",
+
+  "text.autoconfig.headdowndisplay.option.enabled":               "Activé",
+  "text.autoconfig.headdowndisplay.option.min_y":                 "Décalage vertical minimum",
+  "text.autoconfig.headdowndisplay.option.max_y":                 "Décalage vertical maximum",
+  "text.autoconfig.headdowndisplay.option.speed":                 "Vitesse",
+  "text.autoconfig.headdowndisplay.option.time_visible":          "Temps c'est visible (en secondes)",
+
+  "text.autoconfig.headdowndisplay.option.reveal":                "Conditions de révéler",
+  "text.autoconfig.headdowndisplay.option.reveal.slot":           "Changement d'emplacement d'inventaire",
+  "text.autoconfig.headdowndisplay.option.reveal.item":           "Changement de variable d'élément sélectionné",
+  "text.autoconfig.headdowndisplay.option.reveal.status_effects": "Effets de statut",
+  "text.autoconfig.headdowndisplay.option.reveal.health":         "Santé",
+  "text.autoconfig.headdowndisplay.option.reveal.hunger":         "Faim",
+  "text.autoconfig.headdowndisplay.option.reveal.armor":          "Armure",
+  "text.autoconfig.headdowndisplay.option.reveal.exp":            "Expérience",
+  "text.autoconfig.headdowndisplay.option.reveal.exp_lvl":        "Niveau d'expérience",
+  "text.autoconfig.headdowndisplay.option.reveal.air":            "Air",
+  "text.autoconfig.headdowndisplay.option.reveal.mount_health":   "Santé du véhicule",
+  "text.autoconfig.headdowndisplay.option.reveal.jumpbar":        "Barre de saut de cheval"
+}

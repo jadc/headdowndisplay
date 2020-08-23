@@ -2,31 +2,23 @@ package red.jad.headdowndisplay.config;
 
 public class DefaultConfig {
 
-    public enum change {INCREASE, DECREASE, BOTH}
+    public enum Change {increase, decrease, always, never}
 
     public boolean isEnabled(){ return true; }
     public double getMinY(){ return -60; }
     public double getMaxY(){ return 0; }
     public double getSpeed(){ return 1; }
-    public double getAcceleration(){ return 1; }
     public double getTimeVisible(){ return 2; }
 
-    public boolean revealSlotChange(){ return true; }
-    public boolean revealItemChange(){ return false; }
-    public boolean revealHealthIncrease(){ return false; }
-    public boolean revealHealthDecrease(){ return true; }
-    public boolean revealHungerIncrease(){ return false; }
-    public boolean revealHungerDecrease(){ return false; }
-    public boolean revealArmorIncrease(){ return true; }
-    public boolean revealArmorDecrease(){ return true; }
-    public boolean revealExpIncrease(){ return false; }
-    public boolean revealExpDecrease(){ return false; }
-    public boolean revealExpLvlIncrease(){ return false; }
-    public boolean revealExpLvlDecrease(){ return false; }
-    public boolean revealAirIncrease(){ return false; }
-    public boolean revealAirDecrease(){ return true; }
+    public boolean revealSlot(){ return true; }
+    public boolean revealItem(){ return false; }
     public boolean revealStatusEffects(){ return false; }
-    public boolean revealMountHealthIncrease(){ return false; }
-    public boolean revealMountHealthDecrease(){ return true; }
+    public Change revealHealth(){ return Change.decrease; }
+    public Change revealHunger(){ return Change.never; }
+    public Change revealArmor(){ return Change.always; }
+    public Change revealExp(){ return Change.never; }
+    public Change revealExpLvl(){ return Change.never; }
+    public Change revealAir(){ return Change.decrease; }
+    public Change revealMountHealth(){ return Change.decrease; }
     public boolean revealJumpbarChange(){ return true; }
 }

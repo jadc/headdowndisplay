@@ -17,6 +17,9 @@ import red.jad.headdowndisplay.config.DefaultConfig;
 public class HDD implements ClientModInitializer {
 
     public static final String MOD_ID = "headdowndisplay";
+    public static final String AUTO_CONFIG_MOD_ID = "autoconfig1u";
+    public static final String CLOTH_CONFIG_MOD_ID = "cloth-config2";
+
     public static DefaultConfig config;
     private static KeyBinding keyShowHud;
 
@@ -34,11 +37,12 @@ public class HDD implements ClientModInitializer {
         ){});
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (keyShowHud.wasPressed()) { HudAnimationHandler.revealHud(); }
+            while (keyShowHud.wasPressed() && HDD.config.isEnabled()) {
+                HudAnimationHandler.revealHud();
+            }
         });
 
-
-		if(FabricLoader.getInstance().isModLoaded("autoconfig1u")){
+		if(FabricLoader.getInstance().isModLoaded(AUTO_CONFIG_MOD_ID)){
             AutoConfig.register(AutoConfigIntegration.class, GsonConfigSerializer::new);
             config = AutoConfig.getConfigHolder(AutoConfigIntegration.class).getConfig();
         }else{

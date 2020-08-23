@@ -25,21 +25,6 @@ public class HudMovementMixin {
 		if(client.player != null) HudConditionHandler.tick(client.player);
 	}
 
-	/*
-	@ModifyVariable(
-			method = "renderHotbarItem",
-			at = @At(value = "HEAD"),
-			print = true
-	)
-	private void print(){}
-
-	 */
-
-
-	/*
-		Sliding
-	 */
-
 	// Hotbar
 	@Inject( method = "renderHotbar", at = @At(value = "HEAD") )
 	private void translateHotbar(final float f, final MatrixStack matrixStack, final CallbackInfo ci){
