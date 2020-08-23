@@ -28,7 +28,6 @@ public class HudConditionHandler {
         }
 
         if(!player.isCreative() && HDD.config.revealHealth() != DefaultConfig.Change.never){
-            System.out.println((int)player.getHealth());
             revealDelta((int)player.getHealth(), previousHealth, HDD.config.revealHealth());
             previousHealth = (int)player.getHealth();
         }
