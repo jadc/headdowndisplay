@@ -10,7 +10,7 @@ public class HudAnimationHandler {
     private static double speed = 0;
 
     public static double getY(){
-        return Math.min(Math.max(y, HDD.config.getMinY()), HDD.config.getMaxY());
+        return -Math.min(Math.max(y, HDD.config.getMinY()), HDD.config.getMaxY());
     }
 
     private static long lastRevealed;
