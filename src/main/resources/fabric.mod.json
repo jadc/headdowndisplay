@@ -4,15 +4,15 @@
   "version": "${version}",
 
   "name": "Head-down Display",
-  "description": "Auto-hides the HUD when not in use.",
-  "authors": ["Jad Chehimi"],
+  "description": "Automatically hides the Head-up Display when not in use.\nCacher le affichage te^te haute automatiquement quand c'est pas en utilise.\n\nThank you strojae for the French translation.\nMerci strojae pour la mauvais traduction en francais.",
+  "authors": ["Jad Chehimi", "strojae"],
   "contact": {
     "homepage": "https://curseforge.com/mc-mods/headdowndisplay",
     "sources": "https://github.com/jadc/headdowndisplay",
     "issues": "https://github.com/jadc/headdowndisplay/issues"
   },
 
-  "license": "MIT",
+  "license": "LGPLv3",
   "icon": "assets/headdowndisplay/icon.png",
 
   "environment": "*",
@@ -20,9 +20,7 @@
     "client": ["red.jad.headdowndisplay.HDD"],
     "modmenu": [ "red.jad.headdowndisplay.config.ModMenuIntegration" ]
   },
-  "mixins": [
-    "headdowndisplay.mixins.json"
-  ],
+  "mixins": [ "headdowndisplay.mixins.json" ],
 
   "depends": {
     "fabricloader": ">=0.7.4",
