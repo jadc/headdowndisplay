@@ -1,0 +1,24 @@
+{
+  "text.autoconfig.headdowndisplay.title":                        "Head-down Display",
+  "key.categories.headdowndisplay":                               "Head-down Display",
+  "key.headdowndisplay.showhud":                                  "Göster",
+
+  "text.autoconfig.headdowndisplay.option.enabled":               "Etkin",
+  "text.autoconfig.headdowndisplay.option.min_y":                 "Minimum Dikey Taşma",
+  "text.autoconfig.headdowndisplay.option.max_y":                 "Maksimum Dikey Taşma",
+  "text.autoconfig.headdowndisplay.option.speed":                 "Hız",
+  "text.autoconfig.headdowndisplay.option.time_visible":          "Gözükme Süresi (saniye olarak)",
+
+  "text.autoconfig.headdowndisplay.option.reveal":                "Gösterme Şartları",
+  "text.autoconfig.headdowndisplay.option.reveal.slot":           "Seçili Sıra Değişimi",
+  "text.autoconfig.headdowndisplay.option.reveal.item":           "Seçili Eşya Değişimi",
+  "text.autoconfig.headdowndisplay.option.reveal.status_effects": "Durum Etkileri",
+  "text.autoconfig.headdowndisplay.option.reveal.health":         "Sağlık",
+  "text.autoconfig.headdowndisplay.option.reveal.hunger":         "Açlık",
+  "text.autoconfig.headdowndisplay.option.reveal.armor":          "Zırh",
+  "text.autoconfig.headdowndisplay.option.reveal.exp":            "Deneyim",
+  "text.autoconfig.headdowndisplay.option.reveal.exp_lvl":        "Tecrübe Seviyesi",
+  "text.autoconfig.headdowndisplay.option.reveal.air":            "Hava",
+  "text.autoconfig.headdowndisplay.option.reveal.mount_health":   "Bineğin Sağlığı",
+  "text.autoconfig.headdowndisplay.option.reveal.jumpbar":        "Zıplama Barı Kullanımı"
+}
